@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'datto',
+    podModulePrefix: 'datto/pods',
     environment,
     rootURL: '/',
     locationType: 'auto',
