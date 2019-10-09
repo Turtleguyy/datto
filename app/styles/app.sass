@@ -1,0 +1,123 @@
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+body
+  font-family: 'Source Sans Pro', sans-serif
+
+  > .ember-view
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    position: fixed
+    background: repeat center center
+    background-image: linear-gradient(to top, rgba(18,25,44,1) 5%, rgba(18,25,44,0)), url('/images/bg.png')
+    overflow: scroll
+    -webkit-overflow-scrolling: touch
+
+    @media all and (max-width: 768px)
+      padding: 60px
+
+    &::before
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: -1
+      position: fixed
+      content: ''
+      display: block
+      border-image: url('/images/site-border.png') 261 277 261 264 repeat
+      border-style: solid
+      border-width: 201px 207px 201px 204px
+
+      @media all and (max-width: 768px)
+        border-width: 101px 107px 101px 104px
+
+section
+  margin: 110px
+  height: calc(100% - 225px)
+  display: flex
+  flex-direction: column
+
+h1
+  padding: 0 0 40px
+  display: flex
+  align-items: center
+  flex: 1
+  justify-content: center
+  color: transparent
+  font-size: 0
+
+img
+  width: 250px
+  max-width: 50%
+
+nav
+  display: flex
+  align-items: flex-start
+  justify-content: center
+
+  @media all and (max-width: 768px)
+    align-items: stretch
+    flex-direction: column
+
+  $buttonHeight: 5px
+
+  a
+    position: relative
+    margin: 0 20px 20px
+    padding: 15px 40px
+    display: flex
+    align-items: center
+    justify-content: center
+    border-bottom-style: solid
+    border-bottom-width: $buttonHeight
+    border-radius: 3px
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.25) inset, 0 0 10px rgba(0,0,0,0.5)
+    color: white
+    font-size: 24px
+    text-decoration: none
+    transition: background-color 200ms ease
+
+    &:active
+      top: $buttonHeight
+      border-bottom-width: 0
+
+    @media all and (max-width: 768px)
+      padding-top: 30px
+      padding-bottom: 30px
+
+    svg
+      margin-right: 7px
+
+  .twitch
+    background: #9146ff
+    border-color: darken(#9146ff, 25%)
+
+  .twitter
+    background: #1da1f2
+    border-color: darken(#1da1f2, 25%)
+
+  .youtube
+    background: #ff0000
+    border-color: darken(#ff0000, 25%)
+    &:hover
+      background: lighten(#ff0000, 10%)
+    &:active
+      background: darken(#ff0000, 5%)
+
+  .followers
+    margin-left: 7px
+    padding: 0 5px 2px
+    display: inline-block
+    background: rgba(0,0,0,0.25)
+    border-top: 1px solid rgba(0,0,0,0.1)
+    border-radius: inherit
+    font-size: 0.6em
+    font-weight: 600
+    text-shadow: 0 1px 0 rgba(0,0,0,0.25)

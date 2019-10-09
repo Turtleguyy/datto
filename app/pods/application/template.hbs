@@ -1,0 +1,37 @@
+<section>
+  <h1>
+    <img src="images/logo.png" alt="Datto">
+  </h1>
+
+  <nav>
+    <a class="twitch" href="https://www.twitch.tv/Datto">
+      {{fa-icon "twitch"}}
+      Twitch
+      {{#if this.model.twitch}}
+        <span class="followers">
+          {{number-shortener this.model.twitch}}
+        </span>
+      {{/if}}
+    </a>
+
+    <a class="twitter" href="https://twitter.com/DattosDestiny">
+      {{fa-icon "twitter"}}
+      Twitter
+      {{#if this.model.twitter}}
+        <span class="followers">
+          {{number-shortener this.model.twitter}}
+        </span>
+      {{/if}}
+    </a>
+
+    <a class="youtube" href="https://www.youtube.com/user/DattoDoesDestiny">
+      {{fa-icon "youtube"}}
+      YouTube
+      {{#if this.model.youtube}}
+        <span class="followers">
+          {{number-shortener this.model.youtube}}
+        </span>
+      {{/if}}
+    </a>
+  </nav>
+</section>
