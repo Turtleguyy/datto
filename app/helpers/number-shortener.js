@@ -7,7 +7,7 @@ export function numberShortener(number) {
   if (number > 1000000) {
     return `${round((number / 1000000), 1)}M`
   } else if (number > 1000) {
-    return `${Math.round(number / 1000)}K`
+    return `${round((number / 1000), 1)}K`
   } else {
     return `${number}`
   }

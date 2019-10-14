@@ -1,16 +1,17 @@
 import Route from '@ember/routing/route'
 import RSVP from 'rsvp'
 import fetch from 'fetch'
+import { inject as service } from '@ember/service'
 
 export default Route.extend({
+  twitter: service(),
+
   model() {
 
     // twitch
     const client = 'zvp7v759yk8qscey6q06xh6mr4ev69'
-    const twitchURL = 'https://api.twitch.tv/helix/users?login=datto'
-
-    // twitter
-    const twitterURL = 'https://api.twitter.com/1.1/users/show.json?screen_name=DattosDestiny'
+    // const twitchURL = 'https://api.twitch.tv/helix/users?login=datto'
+    const twitchURL = 'https://api.twitch.tv/helix/users/follows?to_id=42296879'
 
     // youtube
     const part = 'statistics'
@@ -21,19 +22,12 @@ export default Route.extend({
     return RSVP.hash({
       twitch: fetch(twitchURL, {
         headers: {
-          'Client-ID': 'zvp7v759yk8qscey6q06xh6mr4ev69',
+          'Client-ID': `${client}`,
         }
       })
       .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        if (data.data.length) return data.data[0].view_count
-      }),
-      // twitter: fetch(twitterURL, {
-      //   headers: {
-      //     'authorization': `Bearer ${id}`,
-      //   }
-      // }),
+      .then(data => data.total),
+      // twitter: this.twitter.getUser(),
       youtube: fetch(youtubeURL)
         .then(response => response.json())
         .then(data => {
